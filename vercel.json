@@ -1,25 +1,30 @@
 {
     "version": 2,
     "builds": [
-        {
-            "src": "BackEnd/server.js",
-            "use": "@vercel/node"
-        },
-        {
-            "src": "FrontEnd",
-            "use": "@vercel/static-build",
-            "config": {
-                "distDir": "FrontEnd/dist"
-            }
+      {
+        "src": "BackEnd/server.js",
+        "use": "@vercel/node"
+      },
+      {
+        "src": "FrontEnd",
+        "use": "@vercel/static-build",
+        "config": {
+          "distDir": "FrontEnd/dist"
         }
+      }
     ],
     "routes": [
-        {
-            "src": "/(.*)",
-            "dest": "BackEnd/server.js"
-        }
+      {
+        "src": "/api/(.*)",
+        "dest": "BackEnd/server.js"
+      },
+      {
+        "src": "/(.*)",
+        "dest": "FrontEnd/dist/$1"
+      }
     ],
     "env": {
-        "MONGO_DB_URI": "mongodb+srv://farhanmaulana1710:V3TGIwXCCz2sU2up@cluster0.vzoo7b9.mongodb.net/?retryWrites=true&w=majority&appName=chat-api-mern"
-      }
-}
+      "MONGO_DB_URI": "mongodb+srv://farhanmaulana1710:V3TGIwXCCz2sU2up@cluster0.vzoo7b9.mongodb.net/?retryWrites=true&w=majority&appName=chat-api-mern"
+    }
+  }
+  
