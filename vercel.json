@@ -9,7 +9,7 @@
       "src": "FrontEnd",
       "use": "@vercel/static-build",
       "config": {
-        "distDir": "FrontEnd/dist"
+        "distDir": "dist"
       }
     }
   ],
@@ -20,7 +20,7 @@
     },
     {
       "src": "/(.*)",
-      "dest": "/FrontEnd/dist/"
+      "dest": "/FrontEnd/dist/$1"
     }
   ],
   "env": {
