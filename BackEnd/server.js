@@ -1,15 +1,14 @@
-import path from "path";
 import express from "express";
+import cors from "cors";
+import path from "path";
 import cookieParser from "cookie-parser";
 import dotenv from "dotenv";
 import connectToMongoDb from "./db/connectToMongoDb.js";
 
-
 import userRoutes from "./routes/user.routes.js";
 import authRoutes from "./routes/auth.routes.js";
 import messageRoutes from "./routes/message.routes.js";
-import { app,server } from "./socket/socket.js";
-
+import { app, server } from "./socket/socket.js";
 
 const PORT = process.env.PORT || 5000;
 const __dirname = path.resolve();
@@ -18,6 +17,15 @@ dotenv.config();
 
 app.use(express.json());
 app.use(cookieParser());
+
+// Set CORS configuration
+const corsOptions = {
+  origin: "https://example.com", // Ganti dengan domain frontend Anda yang sebenarnya
+  methods: ["GET", "POST"], // Metode HTTP yang diizinkan
+  allowedHeaders: ["Content-Type", "Authorization"], // Header yang diizinkan
+};
+
+app.use(cors(corsOptions));
 
 app.use("/api/auth", authRoutes);
 app.use("/api/messages", messageRoutes);
