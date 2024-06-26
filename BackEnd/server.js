@@ -20,7 +20,7 @@ app.use(cookieParser());
 
 // Set CORS configuration
 const corsOptions = {
-  origin: ["http://localhost:3000"], // Atur domain frontend Anda di sini
+  origin: ["https://chat-freeh.netlify.app"], // Atur domain frontend Anda di sini
   methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
   allowedHeaders: ["Content-Type", "Authorization"],
 };
