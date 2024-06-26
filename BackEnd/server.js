@@ -20,7 +20,7 @@ app.use(cookieParser());
 
 // Set CORS configuration
 const corsOptions = {
-  origin: "https://example.com", // Ganti dengan domain frontend Anda yang sebenarnya
+  origin: "https://chat-freeh.netlify.app", // Ganti dengan domain frontend Anda yang sebenarnya
   methods: ["GET", "POST"], // Metode HTTP yang diizinkan
   allowedHeaders: ["Content-Type", "Authorization"], // Header yang diizinkan
 };
