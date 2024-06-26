@@ -1,0 +1,7 @@
+[build]
+  base = "FrontEnd"
+  publish = "FrontEnd/dist"
+  command = "npm run build"
+
+[functions]
+  directory = "BackEnd"

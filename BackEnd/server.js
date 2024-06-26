@@ -20,21 +20,27 @@ app.use(cookieParser());
 
 // Set CORS configuration
 const corsOptions = {
-  origin: "https://chat-freeh.netlify.app", // Ganti dengan domain frontend Anda yang sebenarnya
-  methods: ["GET", "POST"], // Metode HTTP yang diizinkan
-  allowedHeaders: ["Content-Type", "Authorization"], // Header yang diizinkan
+  origin: ["http://localhost:3000"], // Atur domain frontend Anda di sini
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+  allowedHeaders: ["Content-Type", "Authorization"],
 };
-
 app.use(cors(corsOptions));
 
 app.use("/api/auth", authRoutes);
 app.use("/api/messages", messageRoutes);
 app.use("/api/users", userRoutes);
 
+// Serve static files
 app.use(express.static(path.join(__dirname, "/FrontEnd/dist")))
 
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "FrontEnd", "dist", "index.html"));
+});
+
+// Error handling middleware
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(500).send('Something broke!');
 });
 
 server.listen(PORT, () => {
