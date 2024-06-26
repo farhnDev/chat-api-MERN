@@ -20,7 +20,7 @@
     },
     {
       "src": "/(.*)",
-      "dest": "/FrontEnd/dist/$1"
+      "dest": "/FrontEnd/dist/"
     }
   ],
   "env": {
