@@ -1,0 +1,19 @@
+{
+    "version": 2,
+    "builds": [
+      {
+        "src": "BackEnd/server.js",
+        "use": "@vercel/node"
+      }
+    ],
+    "routes": [
+      {
+        "src": "/api/(.*)",
+        "dest": "BackEnd/server.js"
+      }
+    ],
+    "env": {
+      "MONGO_DB_URI": "mongodb+srv://farhanmaulana1710:V3TGIwXCCz2sU2up@cluster0.vzoo7b9.mongodb.net/?retryWrites=true&w=majority&appName=chat-api-mern"
+    }
+  }
+  
