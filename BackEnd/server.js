@@ -1,5 +1,5 @@
 import express from "express";
-import cors from "cors";
+// import cors from "cors";
 import path from "path";
 import cookieParser from "cookie-parser";
 import dotenv from "dotenv";
@@ -19,12 +19,12 @@ app.use(express.json());
 app.use(cookieParser());
 
 // Set CORS configuration
-const corsOptions = {
-  origin: ["https://chat-freeh.netlify.app"], // Atur domain frontend Anda di sini
-  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-  allowedHeaders: ["Content-Type", "Authorization"],
-};
-app.use(cors(corsOptions));
+// const corsOptions = {
+//   origin: ["https://chat-freeh.netlify.app"], // Atur domain frontend Anda di sini
+//   methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+//   allowedHeaders: ["Content-Type", "Authorization"],
+// };
+// app.use(cors(corsOptions));
 
 app.use("/api/auth", authRoutes);
 app.use("/api/messages", messageRoutes);
